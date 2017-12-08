@@ -5,6 +5,7 @@ module.exports = function (grunt) {
   'use strict';
   var config = {
     pkg: grunt.file.readJSON('package.json'),
+    pkgName: grunt.file.readJSON('package.json').name.split('/')[1],
     simplemocha: {
       test: {
         src: 'test/node.js',
@@ -22,23 +23,23 @@ module.exports = function (grunt) {
     concat: {
       options: {
         sourceMap: true,
-        banner: ';/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %>',
+        banner: ';/*! <%= pkgName %> <%= grunt.template.today("dd-mm-yyyy") %>',
       },
       dist: {
         src: [
           'src/*.js'
         ],
-        dest: 'dist/<%= pkg.name %>.js'
+        dest: 'dist/<%= pkgName %>.js'
       }
     },
     uglify: {
       options: {
         sourceMap: true,
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+        banner: '/*! <%= pkgName %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
       dist: {
         files: {
-          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+          'dist/<%= pkgName %>.min.js': ['<%= concat.dist.dest %>']
         }
       }
     }

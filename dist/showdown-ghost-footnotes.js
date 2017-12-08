@@ -1,4 +1,4 @@
-;/*! showdown-ghost-footnotes 25-04-2017/**
+;/*! showdown-ghost-footnotes 08-12-2017/**
  * Created by Estevao on 15-07-2015.
  */
 // Extension loading compatible with AMD and CommonJs
